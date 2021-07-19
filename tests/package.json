@@ -1,0 +1,14 @@
+{
+  "name": "sr-coding-task-test",
+  "version": "0.0.1",
+  "description": "Polls Coding Task Test Suite",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "SmartRecruiters",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.7.0"
+  }
+}
