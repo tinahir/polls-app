@@ -11,11 +11,11 @@ export const Header = () => {
         <div css={tw`flex items-center flex-grow flex-shrink-0 lg:flex-grow-0`}>
           <div css={tw`flex items-center justify-between w-full md:w-auto`}>
             <Link to="/" aria-label="Home">
-              <img
-                css={tw`h-8 w-auto sm:h-10`}
-                src={process.env.PUBLIC_URL + "/img/logo.png"}
-                alt="Logo"
-              />
+              <span
+                css={tw`text-4xl tracking-tight leading-10 font-extrabold text-indigo-600 sm:text-5xl sm:leading-none md:text-6xl`}
+              >
+                heycar
+              </span>
             </Link>
           </div>
         </div>

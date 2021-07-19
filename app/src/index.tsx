@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 });
 const localStoragePersistor = createWebStoragePersistor({
   storage: window.localStorage,
-  key: `smartRecruitersOfflineCache`,
+  key: `pollsOfflineCache`,
   throttleTime: 0,
 });
 
