@@ -9,23 +9,20 @@ import { useQuestion } from "@hooks/useQuestions";
 import { useSaveVote } from "@hooks/useSaveVote";
 import { Choice } from "@Model/Choice";
 
-const Span = tw.span`mr-8 w-10 h-10 flex items-center justify-center rounded-full bg-indigo-700 text-white`;
-
 function Question() {
-  console.count();
   const { id } = useParams();
   const { data, isLoading, error } = useQuestion(id);
   const saveVote = useSaveVote();
   const [choice, setChoice] = React.useState<Choice>();
 
-  const totalVotes = React.useMemo(() => {
+  const totalVotes = (() => {
     return (
       data?.choices?.reduce(
         (votes, currentChoice) => (votes += currentChoice.votes),
         0
       ) ?? 0
     );
-  }, [data]);
+  })();
 
   const getPercentage = (votes: number) => {
     if (totalVotes === 0) {
@@ -78,14 +75,19 @@ function Question() {
                     <span css={tw`flex-1 text-lg`} data-test="choice-name">
                       {choice.choice}
                     </span>
-                    <Span data-test="choice-votes">{choice.votes}</Span>
-                    <Span
+                    <span
+                      css={tw`mr-8 w-10 h-10 flex items-center justify-center rounded-full bg-indigo-700 text-white`}
+                      data-test="choice-votes"
+                    >
+                      {choice.votes}
+                    </span>
+                    <span
                       data-test="choice-percentage"
-                      css={tw`rounded-lg w-16`}
+                      css={tw`rounded-lg w-16 mr-8 w-10 h-10 flex items-center justify-center rounded-full bg-indigo-700 text-white`}
                     >
                       {getPercentage(choice.votes).toFixed()}%
-                    </Span>
-                    <span css={tw`flex items-center justify-center`}>
+                    </span>
+                    <span css={tw`flex items-center justify-center `}>
                       <input
                         data-test="choice-select"
                         name="choice"
